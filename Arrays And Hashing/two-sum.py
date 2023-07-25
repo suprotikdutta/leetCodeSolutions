@@ -17,3 +17,20 @@ def twoSum(nums, target: int):
 
 a = twoSum([2, 7, 11, 15], 9)
 print(a)
+
+public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                result[1] = i;
+                result[0] = map.get(target - nums[i]);
+                return result;
+            }
+            if(map.containsKey(nums[i])) {
+                continue;
+            }
+            map.put(nums[i], i);
+        }
+        return result;
+    }
